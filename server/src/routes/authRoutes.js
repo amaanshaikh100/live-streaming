@@ -1,13 +1,13 @@
 import express from "express";
+import Joi from "joi";
+import ExpressValidation from "express-joi-validation";
+import { postLogin, postRegister } from "../controllers/controllers.js";
 
 const router = express.Router();
 
-router.get("/register", (req, res) => {
-  res.send("this is a register route");
-});
+const validator = ExpressValidation.createValidator({});
 
-router.get("/login", (req, res) => {
-  res.send("this is a login route");
-});
+router.get("/register", postRegister);
+router.get("/login", postLogin);
 
 export default router;
